@@ -10,6 +10,7 @@ import android.util.Log;
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.RequestQueue;
+import com.android.volley.Request.Method;
 import com.android.volley.toolbox.JsonArrayRequest;
 
 public abstract class JsonArrayCommand extends JsonCommand<JSONArray>{
@@ -28,6 +29,7 @@ public abstract class JsonArrayCommand extends JsonCommand<JSONArray>{
 	public void execute(RequestQueue queue) {
 		makeRequest();
 		url = url.replaceAll(" ", "%20");
+		method = Method.GET;
 		if(ISDEBUG)
 			Log.i(TAG, url);
 		jsonArrayRequest = new JsonArrayRequest(method,url,jsonRequest, this, this){

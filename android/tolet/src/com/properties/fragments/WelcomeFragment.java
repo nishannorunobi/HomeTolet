@@ -12,11 +12,9 @@ public class WelcomeFragment extends Fragment{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
+		super.onCreateView(inflater, container,savedInstanceState);
 		View view = inflater.inflate(R.layout.welcome_view, container,false);
 		return view;
 	}
-
-
-	
 	
 }

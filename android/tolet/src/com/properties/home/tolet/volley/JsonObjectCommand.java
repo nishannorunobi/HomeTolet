@@ -8,6 +8,7 @@ import android.util.Log;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Request.Method;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 
@@ -24,6 +25,7 @@ public abstract class JsonObjectCommand extends JsonCommand<JSONObject>{
 	public void execute(RequestQueue queue) {
 		makeRequest();
 		url = url.replaceAll(" ", "%20");
+		method = Method.POST;
 		if(ISDEBUG)
 			Log.i(TAG, url);
 		jsObjRequest = new JsonObjectRequest(method, url, jsonRequest, this, this)
